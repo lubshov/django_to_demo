@@ -1,20 +1,44 @@
 from django_filters import rest_framework as filters
 from rest_framework import generics
 from drf_yasg.utils import swagger_auto_schema
-
-from django_to_demo.serializer import DurationsSerializer
-from django_to_demo.models import Durations
+from django.shortcuts import render
+from django_to_demo.serializer import DurationsSerializer, ClientsSerializer, EquipmentSerializer, ModesSerializer
+from django_to_demo.models import Durations, Clients, Equipment, Modes
+from django.http import HttpResponse
 
 
 class DurationsListFilter(filters.FilterSet):
-    client_id = filters.BaseCSVFilter(field_name='client_id', lookup_expr='in')
+    client = filters.BaseCSVFilter(field_name='client_id', lookup_expr='in')
+
+
+class ClientsListFilter(filters.FilterSet):
+    name = filters.BaseCSVFilter(field_name='name', lookup_expr='in')
 
 
 class DurationsList(generics.ListCreateAPIView):
     filterset_class = DurationsListFilter
     serializer_class = DurationsSerializer
     queryset = Durations.objects.all()
-    #
-    # @swagger_auto_schema(operation_description='Тестовый запрос к durations ')
-    # def get(self, request, *args, **kwargs):
-    #     return Durations.objects.filter(worker_id=self.kwargs['pk'])
+
+
+class ClientsList(generics.ListCreateAPIView):
+    filterset_class = ClientsListFilter
+    serializer_class = ClientsSerializer
+    queryset = Clients.objects.all()
+
+
+class EquipmentList(generics.ListCreateAPIView):
+    serializer_class = EquipmentSerializer
+    queryset = Equipment.objects.all()
+
+
+class ModesList(generics.ListCreateAPIView):
+    serializer_class = ModesSerializer
+    queryset = Modes.objects.all()
+
+
+def index(request):
+    clients = Clients.objects.all()
+    modes = Modes.objects.all()
+    equipments = Equipment.objects.all()
+    return render(request, 'django_to_demo/index.html', locals())

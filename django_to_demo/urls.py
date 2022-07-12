@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django_to_demo.views import DurationsList
+from django_to_demo.views import DurationsList, ClientsList, EquipmentList, ModesList, index
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
@@ -35,7 +35,14 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-    path('getDurations/<int:pk>/', DurationsList.as_view()),
-    # path('admin/', admin.site.urls),
+    path('getDurations/', DurationsList.as_view()),
+    path('getClients/', ClientsList.as_view()),
+    path('getEquipment/', EquipmentList.as_view()),
+    path('getModes/', ModesList.as_view()),
+
+
+    path('getHTML/', index),
+
+    path('admin/', admin.site.urls),
     path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui')
 ]
