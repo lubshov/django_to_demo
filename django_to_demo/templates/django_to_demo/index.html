@@ -3,22 +3,21 @@
  <p><select name="name">
   <option>Все</option>
 {% for i in clients %}
-  <option>{{i.name }}</option>
-     <var>client</var> = {{i.id}}
+  <option value="{{ i.id }}">{{ i.name }}</option>
 {% endfor %}
  </select></p>
 
   <p><select name="list2">
   <option>Все</option>
 {% for i in equipments %}
-  <option>{{i.name }}</option>
+  <option value="{{ i.id }}">{{i.name }}</option>
 {% endfor %}
  </select></p>
 
   <p><select name="list3">
   <option>Все</option>
 {% for i in modes %}
-  <option>{{i.name }}</option>
+  <option value="{{ i.id }}">{{i.name }}</option>
 {% endfor %}
  </select></p>
     
