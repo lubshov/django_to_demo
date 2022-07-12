@@ -1,46 +1,46 @@
 <form action="/getClients" method="get" name="form1">
 
- <p><select name="name">
-  <option>Все</option>
-{% for i in clients %}
-  <option value="{{ i.id }}">{{ i.name }}</option>
-{% endfor %}
- </select></p>
+    <p><select name="name">
+        <option>Все</option>
+        {% for i in clients %}
+            <option value="{{ i.id }}">{{ i.name }}</option>
+        {% endfor %}
+    </select></p>
 
-  <p><select name="list2">
-  <option>Все</option>
-{% for i in equipments %}
-  <option value="{{ i.id }}">{{i.name }}</option>
-{% endfor %}
- </select></p>
+    <p><select name="list2">
+        <option>Все</option>
+        {% for i in equipments %}
+            <option value="{{ i.id }}">{{ i.name }}</option>
+        {% endfor %}
+    </select></p>
 
-  <p><select name="list3">
-  <option>Все</option>
-{% for i in modes %}
-  <option value="{{ i.id }}">{{i.name }}</option>
-{% endfor %}
- </select></p>
-    
- <p><input type="submit" value="Отправить" formaction="/getClients"></p>
-    </form>
+    <p><select name="list3">
+        <option>Все</option>
+        {% for i in modes %}
+            <option value="{{ i.id }}">{{ i.name }}</option>
+        {% endfor %}
+    </select></p>
+
+    <p><input type="submit" value="Отправить" formaction="/getClients"></p>
+</form>
 
 <!--{% for i in clients %}-->
-<!--<tr class='success'>-->
-<!-- <p><td>{{ i.id }}</td>-->
-<!--<td>{{ i.name }}</td></p>-->
-<!--</tr>-->
-<!--{% endfor %}-->
+    <!--<tr class='success'>-->
+    <!-- <p><td>{{ i.id }}</td>-->
+    <!--<td>{{ i.name }}</td></p>-->
+    <!--</tr>-->
+    <!--{% endfor %}-->
 
 <!--{% for i in modes %}-->
-<!--<tr class='success'>-->
-<!-- <p><td>{{ i.id }}</td>-->
-<!-- <td>{{ i.name }}</td></p>-->
-<!--</tr>-->
-<!--{% endfor %}-->
+    <!--<tr class='success'>-->
+    <!-- <p><td>{{ i.id }}</td>-->
+    <!-- <td>{{ i.name }}</td></p>-->
+    <!--</tr>-->
+    <!--{% endfor %}-->
 
 <!--{% for i in equipments %}-->
-<!--<tr class='success'>-->
-<!-- <p><td>{{ i.id }}</td>-->
-<!--<td>{{ i.name }}</td></p>-->
-<!--</tr>-->
-<!--{% endfor %}-->
+    <!--<tr class='success'>-->
+    <!-- <p><td>{{ i.id }}</td>-->
+    <!--<td>{{ i.name }}</td></p>-->
+    <!--</tr>-->
+    <!--{% endfor %}-->
