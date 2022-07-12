@@ -22,3 +22,27 @@ class Durations(models.Model):
         db_table = 'durations'
 
 
+class Equipment(models.Model):
+    client_id = models.IntegerField()
+    name = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'equipment'
+
+
+class Modes(models.Model):
+    name = models.TextField(unique=True, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'modes'
+
+
+class Clients(models.Model):
+    name = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'clients'
+
