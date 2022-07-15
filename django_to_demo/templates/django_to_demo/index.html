@@ -14,7 +14,31 @@
         {% endfor %}
     </select></p>
 
-    <p><select name="list3", id="modes">
+    <p><select name="minutes", id="minutes">
+        <option value=>"Все"</option>
+        {% for i in modes %}
+            <option value="{{ i.id }}">{{ i.name }}</option>
+        {% endfor %}
+    </select></p>
+
+    <p><input type="submit" value="Отправить" formaction="/getDurations"></p>
+        <p><select name="list3", id="">
+        <option value=>"Все"</option>
+        {% for i in modes %}
+            <option value="{{ i.id }}">{{ i.name }}</option>
+        {% endfor %}
+    </select></p>
+
+    <p><input type="submit" value="Отправить" formaction="/getDurations"></p>
+        <p><select name="list3", id="modes">
+        <option value=>"Все"</option>
+        {% for i in modes %}
+            <option value="{{ i.id }}">{{ i.name }}</option>
+        {% endfor %}
+    </select></p>
+
+    <p><input type="submit" value="Отправить" formaction="/getDurations"></p>
+        <p><select name="list3", id="modes">
         <option value=>"Все"</option>
         {% for i in modes %}
             <option value="{{ i.id }}">{{ i.name }}</option>

@@ -12,6 +12,13 @@ class DurationsListFilter(filters.FilterSet):
     client = filters.BaseCSVFilter(field_name='client_id', lookup_expr='in')
     equipment = filters.BaseCSVFilter(field_name='equipment_id', lookup_expr='in')
     modes = filters.BaseCSVFilter(field_name='mode_id', lookup_expr='in')
+    minutes = filters.RangeFilter(field_name='minutes', lookup_expr='value__range')
+    date_start = filters.DateFilter(field_name='start', lookup_expr='date__gte')
+    date_stop = filters.DateFilter(field_name='stop', lookup_expr='date__lte')
+    time_start = filters.TimeFilter(field_name='start', lookup_expr='time__gte')
+    time_stop = filters.TimeFilter(field_name='stop', lookup_expr='time__lte')
+    # starts_at = filters.DateTimeFilter(field_name='starts_at', )
+    # ends_at = filters.DateTimeFilter(field_name='ends_at', )
 
 
 class ClientsListFilter(filters.FilterSet):
