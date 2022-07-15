@@ -1,46 +1,48 @@
-<form action="/getClients" method="get" name="form1">
+<form action="/getDurations" method="get" name="form1">
 
-    <p><select name="name">
-        <option>Все</option>
+    <p><select name="client", id="client">
+            <option value="">"Все"</option>
         {% for i in clients %}
             <option value="{{ i.id }}">{{ i.name }}</option>
         {% endfor %}
     </select></p>
 
-    <p><select name="list2">
-        <option>Все</option>
+    <p><select name="list2", id="equipment">
+        <option value=>"Все, без разделения по клиентам"</option>
         {% for i in equipments %}
             <option value="{{ i.id }}">{{ i.name }}</option>
         {% endfor %}
     </select></p>
 
-    <p><select name="list3">
-        <option>Все</option>
+    <p><select name="list3", id="modes">
+        <option value=>"Все"</option>
         {% for i in modes %}
             <option value="{{ i.id }}">{{ i.name }}</option>
         {% endfor %}
     </select></p>
 
-    <p><input type="submit" value="Отправить" formaction="/getClients"></p>
+    <p><input type="submit" value="Отправить" formaction="/getDurations"></p>
 </form>
 
-<!--{% for i in clients %}-->
-    <!--<tr class='success'>-->
-    <!-- <p><td>{{ i.id }}</td>-->
-    <!--<td>{{ i.name }}</td></p>-->
-    <!--</tr>-->
-    <!--{% endfor %}-->
 
-<!--{% for i in modes %}-->
-    <!--<tr class='success'>-->
-    <!-- <p><td>{{ i.id }}</td>-->
-    <!-- <td>{{ i.name }}</td></p>-->
-    <!--</tr>-->
-    <!--{% endfor %}-->
+<script>
+  document.getElementById("client").onchange  = changefunc;
+    function changefunc(){
+        var value = this.value
+        console.log(value);
+        if (value == ""){
+            document.getElementById("client").value = "";
+        }
 
-<!--{% for i in equipments %}-->
-    <!--<tr class='success'>-->
-    <!-- <p><td>{{ i.id }}</td>-->
-    <!--<td>{{ i.name }}</td></p>-->
-    <!--</tr>-->
-    <!--{% endfor %}-->
+    }
+</script>
+<script>
+  document.getElementById("equipment").onchange = changefunc2;
+    function changefunc2(){
+        var value = this.value
+        if (value == ""){
+            document.getElementById("client").value = "";
+        }
+
+    }
+</script>

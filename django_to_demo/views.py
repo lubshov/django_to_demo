@@ -5,14 +5,17 @@ from django.shortcuts import render
 from django_to_demo.serializer import DurationsSerializer, ClientsSerializer, EquipmentSerializer, ModesSerializer
 from django_to_demo.models import Durations, Clients, Equipment, Modes
 from django.http import HttpResponse
+import django_filters
 
 
 class DurationsListFilter(filters.FilterSet):
     client = filters.BaseCSVFilter(field_name='client_id', lookup_expr='in')
+    equipment = filters.BaseCSVFilter(field_name='equipment_id', lookup_expr='in')
+    modes = filters.BaseCSVFilter(field_name='mode_id', lookup_expr='in')
 
 
 class ClientsListFilter(filters.FilterSet):
-    name = filters.BaseCSVFilter(field_name='name', lookup_expr='in')
+    client = filters.BaseCSVFilter(field_name='id', lookup_expr='in')
 
 
 class DurationsList(generics.ListCreateAPIView):
